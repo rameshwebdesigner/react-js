@@ -18,3 +18,6 @@
 - Tree Shaking - remove unused code
 - Differnt dev and prod bundles
 
+# React Hooks
+- useState() - superpowerful state variable in react
+- useEffects()

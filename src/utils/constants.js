@@ -1,0 +1,2 @@
+export const LOGO_IMG = "https://img.freepik.com/free-vector/ecofood-logo-template_1195-33.jpg?t=st=1726328549~exp=1726332149~hmac=4cdb279675e08f596fa0d954d131bf0933a259654560d9451a19e5c0da065c93&w=1380";
+export const REST_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
