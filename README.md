@@ -21,3 +21,8 @@
 # React Hooks
 - useState() - superpowerful state variable in react
 - useEffects()
+
+
+# 2 types of routing in web apps
+- Client side routing
+- Server side routing

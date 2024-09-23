@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ResturantCard } from "./ResturantCard";
 import { useState, useEffect } from "react";
 
@@ -7,13 +8,11 @@ export const Body = () => {
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.454467&lng=78.4034188&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants);
         setRestsList(json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
     useEffect(() => {
         fetchData();
-        console.log("called useEffect");
     }, []);
 
     if (restsList.length === 0) {
@@ -31,7 +30,11 @@ export const Body = () => {
                 }}>Filter</button>
             </div>
             <div className="res-container">
-                {restsList.map(rest => <ResturantCard key={rest.info.id} resData={rest} />)}
+                {restsList.map((rest) => (
+                    <Link key={rest.info.id} to={"/restaurants/" + rest.info.id}>
+                        <ResturantCard resData={rest} />
+                    </Link>
+                ))}
             </div>
         </div>
     );
