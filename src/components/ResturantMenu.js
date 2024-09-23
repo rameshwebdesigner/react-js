@@ -6,7 +6,7 @@ export const ResturantMenu = () => {
     const { resId } = useParams();
     console.log(resId);
     const fetchMenu = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.454467&lng=78.4034188&restaurantId=509724&catalog_qa=undefined&submitAction=ENTER");
+        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.454467&lng=78.4034188&restaurantId=" + resId);
         const json = await data.json();
         //console.log(json?.data?.cards[2]?.card?.card?.info);
         setRestinfo(json?.data);
