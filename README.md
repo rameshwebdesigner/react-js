@@ -26,3 +26,13 @@
 # 2 types of routing in web apps
 - Client side routing
 - Server side routing
+
+# Custom hook
+- use prefix key before writing before write function name
+
+# Chunching
+- A "chunk," as defined by Webpack, refers to the distinct components that collectively form a bundle.
+- Code spliting
+- Dynamic Bundling
+- Lozy Loading
+- On Demand Loading

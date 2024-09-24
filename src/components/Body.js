@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ResturantCard } from "./ResturantCard";
 import { useState, useEffect } from "react";
+import { useOnlineStatus } from "../utils/useOnlineStatus";
 
 export const Body = () => {
 
@@ -14,6 +15,10 @@ export const Body = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus === false) return <h1>Your internet is Office</h1>
 
     if (restsList.length === 0) {
         return ("Loading...")
