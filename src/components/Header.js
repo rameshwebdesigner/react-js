@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { LOGO_IMG } from "../utils/constants"
 import { Outlet, Link } from "react-router-dom";
 
 
 export const Header = () => {
+    const cartItems = useSelector((state) => state.cart.items)
     return (
         <div className="header">
             <div className="logo">
@@ -14,7 +16,7 @@ export const Header = () => {
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/grocery">Grocery</Link></li>
-                    <li>Cart</li>
+                    <li>Cart ({cartItems.length}) </li>
                 </ul>
             </div>
         </div>

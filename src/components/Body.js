@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ResturantCard } from "./ResturantCard";
+import ResturantCard, { withPromationlabel } from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
 
@@ -17,9 +17,10 @@ export const Body = () => {
     }, []);
 
     const onlineStatus = useOnlineStatus();
+    const ResturantCardPromoted = withPromationlabel(ResturantCard);
 
     if (onlineStatus === false) return <h1>Your internet is Office</h1>
-
+    console.log(restsList);
     if (restsList.length === 0) {
         return ("Loading...")
     }
@@ -34,10 +35,11 @@ export const Body = () => {
                     setRestsList(filterRestsList);
                 }}>Filter</button>
             </div>
-            <div className="res-container">
+            <div className="res-container flex overflow-hidden">
                 {restsList.map((rest) => (
                     <Link key={rest.info.id} to={"/restaurants/" + rest.info.id}>
-                        <ResturantCard resData={rest} />
+                        {rest.info.veg ? <ResturantCardPromoted resData={rest} /> : <ResturantCard resData={rest} />}
+
                     </Link>
                 ))}
             </div>

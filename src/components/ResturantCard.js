@@ -3,7 +3,7 @@ import { REST_IMG } from "../utils/constants"
 const styleCard = {
     background: "#f0f0f0"
 };
-export const ResturantCard = (props) => {
+const ResturantCard = (props) => {
     const { resData } = props;
     const { name, areaName, cloudinaryImageId, avgRatingString } = resData?.info;
 
@@ -16,3 +16,20 @@ export const ResturantCard = (props) => {
         </div>
     );
 };
+
+// Higher Order Component
+
+// input - ResturantCard => ResturantCardPromoted
+
+export const withPromationlabel = (ResturantCard) => {
+    return (props) => {
+        return (
+            <div className="flex">
+                <label>Promotion</label>
+                <ResturantCard {...props} />
+            </div>
+        )
+    }
+}
+
+export default ResturantCard;

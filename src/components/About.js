@@ -13,7 +13,7 @@ export class About extends React.Component {
     render() {
         console.log("Render");
         return (
-            <div>
+            <div className="flex">
                 <h1>About page</h1>
                 <Profile />
             </div>
